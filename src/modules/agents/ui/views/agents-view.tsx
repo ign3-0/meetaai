@@ -11,7 +11,11 @@ export const AgentsView = () => {
   const trpc = useTRPC();
   const { data } = useSuspenseQuery(trpc.agents.getMany.queryOptions());
 
-  return <div className="">{JSON.stringify(data, null, 2)}</div>;
+  return (
+    <div className="">
+      {JSON.stringify(data, null, 2)}
+    </div>
+  );
 };
 
 export const AgentsViewLoading = () => {
@@ -23,12 +27,11 @@ export const AgentsViewLoading = () => {
   );
 };
 
-
 export const AgentsViewError = () => {
   return (
-        <ErrorState
+    <ErrorState
       title="Error Loading Agents"
       description="Something went Wrong"
     />
-  )
-}
+  );
+};
